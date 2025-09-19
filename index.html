@@ -2,97 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pilot-SignBridge</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      line-height: 1.6;
-      background: #f9fafc;
-      color: #333;
-    }
-    header {
-      background: #1a73e8;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 1rem;
-      font-size: 1.2rem;
-    }
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #1a73e8;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      color: #1a73e8;
-    }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
+  <!-- Language Switch -->
+  <div class="lang-switch">
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ru')">RU</button>
+  </div>
+
+  <!-- Hero -->
   <header>
     <h1>Pilot-SignBridge</h1>
-    <p>A bridge between your browser and cryptographic providers</p>
-    <a class="btn" href="https://chrome.google.com/webstore/detail/xxxx" target="_blank">Install Extension</a>
+    <p data-i18n="subtitle"></p>
   </header>
 
-  <section>
-    <h2>How It Works</h2>
-    <ol>
-      <li>Install the Chrome extension</li>
-      <li>Download and install the companion application (Windows/Linux)</li>
-      <li>Sign documents directly in your browser</li>
-    </ol>
-  </section>
+  <div class="container">
+    <!-- Buttons -->
+    <main>
+      <a href="https://github.com/pilotextensions/Pilot-SignBridge/releases/download/v1.0.0/PilotSignBridge.msi" class="btn btn-blue" data-i18n="btnWin"></a>
+      <a href="https://chrome.google.com/webstore/detail/your-extension-id" class="btn btn-green" data-i18n="btnChrome"></a>
+    </main>
 
-  <section>
-    <h2>Download Companion App</h2>
-    <p>
-      👉 <a href="https://github.com/pilotextensions/pilot-signbridge/releases" target="_blank">Download from GitHub Releases</a>
-    </p>
-    <p><strong>Note:</strong> On Windows, you may see a SmartScreen warning because the installer is unsigned. Click <em>“More info → Run anyway”</em> to continue.</p>
-  </section>
+    <!-- About -->
+    <section>
+      <h2 data-i18n="aboutTitle"></h2>
+      <p data-i18n="aboutIntro"></p>
+      <p data-i18n="aboutListTitle"></p>
+      <ul id="about-list"></ul>
+      <p data-i18n="aboutSecurity"></p>
+      <p data-i18n="aboutPro"></p>
+    </section>
 
-  <section>
-    <h2>Privacy & Security</h2>
-    <ul>
-      <li>No data collection or tracking</li>
-      <li>All communication happens locally between browser and companion app</li>
-      <li>No remote code, ads, or analytics</li>
-    </ul>
-  </section>
+    <!-- Instructions -->
+    <section>
+      <h2 data-i18n="installTitle"></h2>
+      <ol>
+        <li data-i18n="steps.0"></li>
+        <li data-i18n="steps.1"></li>
+        <li data-i18n="steps.2"></li>
+        <li data-i18n="steps.3"></li>
+      </ol>
+    </section>
 
-  <section>
-    <h2>Support</h2>
-    <p>
-      📧 Contact: <a href="mailto:youremail@example.com">youremail@example.com</a>
-    </p>
-  </section>
+    <!-- Code Example -->
+    <section>
+      <h2 data-i18n="exampleTitle"></h2>
+      <pre><code class="language-js">
+  // Example: call Pilot-SignBridge API from your site
+  
+  // Sign file with selected certificate
+  function sign(certThumbprint: string, buffer: ArrayBuffer): Promise&lt;string&gt; {
+    if (!window.pilotSignBridge) {
+      return Promise.reject("Extension not found");
+    }
+    return window.pilotSignBridge.signFile(certThumbprint, buffer);
+  }
 
+  // Verify signature
+  function verify(signBase64: string, file: ArrayBuffer): Promise&lt;VerifyStreamFinishResponse&gt; {
+    if (!window.pilotSignBridge) {
+      return Promise.reject("Extension not found");
+    }
+
+    return window.pilotSignBridge.verifyFile(signBase64, file);
+  }
+
+  // Get list of available certificates
+  function async getCertificates(): Promise&lt;ICertificate[]&gt; {
+    if (!window.pilotSignBridge) {
+      return Promise.reject("Extension not found");
+    }
+
+    const certs = await window.pilotSignBridge.getCerts() as ISignBridgeCertificate[];
+    return certs.map(cert => {
+      return {
+        issuer: cert.Issuer,
+        publicKeyOid: cert.PublicKeyOid,
+        subject: cert.Subject,
+        thumbprint: cert.Thumbprint,
+        validFromDate: DateTime.fromISO(cert.ValidFromDate).toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss"),
+        validToDate: DateTime.fromISO(cert.ValidToDate).toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss")
+      };
+    });
+  }
+
+  // Get supported algorithms
+  getSupportedAlgorithms(): Promise&lt;string[]&gt; {
+    if (!window.pilotSignBridge) {
+      return Promise.reject("Extension not found");
+    }
+    return window.pilotSignBridge.getSupportedAlgorithms();
+  }
+
+
+  // How to use
+  const arrayBuffer = new TextEncoder().encode("Hello, world!").buffer;
+  try {
+    const signedBase64 = await sign("abc123...", arrayBuffer)
+    console.log("Signed data:", signedBase64);
+  } catch (err) {
+    console.error("Signing error:", err);
+  }
+      </code></pre>
+    </section>
+  </div>
+  <!-- Footer -->
   <footer>
-    © 2025 Pilot-SignBridge. All rights reserved.
+    <a href="https://drive.google.com/file/d/1_1WA2GjKbwGrXQ8ab6vFY0ETMxmqOCIq/view" target="_blank" data-i18n="privacy"></a>
+    <a href="https://github.com/pilotextensions/pilot-signbridge">GitHub</a>
   </footer>
+
+  <!-- Prism + i18next -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://unpkg.com/i18next@22.4.15/dist/umd/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@2.6.1/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+  <script src="https://unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/jquery-i18next@1.2.1/dist/umd/jquery-i18next.min.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
