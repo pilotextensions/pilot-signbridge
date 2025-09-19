@@ -2,6 +2,7 @@ site_name: "pilot-signbridge"
 site_description: "Pilot-SignBridge. Secure digital signatures in your browser"
 dev_addr: "127.0.0.1:8080"
 repo_url: "https://github.com/pilotextensions/pilot-signbridge"
+site_url: "https://pilotextensions.github.io/pilot-signbridge"
 theme:
   name: shadcn
   icon: heroicons:check-badge
@@ -15,13 +16,13 @@ theme:
   # show_datetime: true
 
 # nav:
-#   - Welcome: index.md
-#   - get_started.md
-#   - Extensions:
-#       - Footnotes: extensions/footnotes.md
-#       - Tabs: extensions/pymdownx_blocks_tab.md
-#       - Details: extensions/pymdownx_blocks_details.md
-#       - Codexec: extensions/codexec.md
+#   - Home: index.md 
+#   - Check Extension: check-extension.md
+#   - API:
+#       - Global: api/global.md
+#       - Certificate: api/certificate.md
+#       - Verification Response: api/verification.md
+#       - Verification Status: api/verificationstatus.md
 
 markdown_extensions:
   codehilite:
