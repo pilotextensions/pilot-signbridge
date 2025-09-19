@@ -1,0 +1,29 @@
+site_name: "pilot-signbridge"
+site_description: "Pilot-SignBridge. Secure digital signatures in your browser"
+dev_addr: "127.0.0.1:8080"
+repo_url: "https://github.com/pilotextensions/pilot-signbridge"
+theme:
+  name: shadcn
+  icon: heroicons:check-badge
+  show_stargazers: false
+  pygments_style:
+    light: shadcn-light
+    dark: github-dark
+  katex_options:
+    macros:
+      "\\dx": "\\mathrm{d}x"
+  # show_datetime: true
+
+# nav:
+#   - Welcome: index.md
+#   - get_started.md
+#   - Extensions:
+#       - Footnotes: extensions/footnotes.md
+#       - Tabs: extensions/pymdownx_blocks_tab.md
+#       - Details: extensions/pymdownx_blocks_details.md
+#       - Codexec: extensions/codexec.md
+
+markdown_extensions:
+  codehilite:
+  extra:
+  admonition:
