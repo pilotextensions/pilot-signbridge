@@ -24,7 +24,7 @@ To use **Pilot-SignBridge**, you must install **both components**:
 3. **Pilot-Web Extension**  
   [⬇️ Download Pilot-Web Extension](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.0/cryptoprovider.pilot-signbridge.zip). This extension enables integration with the Pilot-Web Client for seamless signing operations.
 
-⚠️ *Both the extension **and** the Windows app must be installed — the extension alone will not work.*  
+⚠️ *Both the Chrome extension and the Windows app must be installed — the Chrome extension alone will not work.*  
 
 
 ## Why Pilot-SignBridge?
