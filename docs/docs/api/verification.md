@@ -27,10 +27,15 @@ interface IVerifyStream {
 
   /** Type of CAdES signature (e.g., CAdES-BES, CAdES-T). */
   cadesType: string;
+
+  /** Verification status of the certificate **/
+  chainStatus: ChainStatusFlags;
 }
 ```
 
-👉 The `status` field uses the [**SignatureVerificationStatus**](verificationstatus.md) enumeration for standardized status values. 
+👉 The `status` field uses the [**SignatureVerificationStatus**](verificationstatus.md) enumeration for standardized status values.
+
+👉 The `chainStatus` field uses the [**ChainStatusFlags**](chainstatus.md) enumeration for standardized status values. 
 
 
 ## Example
