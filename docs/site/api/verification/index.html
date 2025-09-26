@@ -334,7 +334,7 @@
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
         
-        PilotSignBridge
+        Global API
         
 
         
@@ -466,35 +466,35 @@
     <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
         <p>The <code>IVerifyStream</code> interface describes the result returned after a file signature verification process. </p>
 <h2 id="type-definition">Type Definition</h2>
-<pre class="codehilite"><code class="language-ts">interface IVerifyStream {
-  /** Indicates whether the verification was successful. */
-  ok: boolean;
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">IVerifyStream</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/** Indicates whether the verification was successful. */</span>
+<span class="w">  </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
 
-  /** Error message if verification failed (optional). */
-  error?: string;
+<span class="w">  </span><span class="cm">/** Error message if verification failed (optional). */</span>
+<span class="w">  </span><span class="nx">error?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 
-  /** Optional verification session identifier. */
-  session?: string;
+<span class="w">  </span><span class="cm">/** Optional verification session identifier. */</span>
+<span class="w">  </span><span class="nx">session?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 
-  /** Verification status. */
-  status: SignatureVerificationStatus;
+<span class="w">  </span><span class="cm">/** Verification status. */</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">SignatureVerificationStatus</span><span class="p">;</span>
 
-  /** Type of CAdES signature (e.g., CAdES-BES, CAdES-T). */
-  cadesType: string;
-}
-</code></pre>
+<span class="w">  </span><span class="cm">/** Type of CAdES signature (e.g., CAdES-BES, CAdES-T). */</span>
+<span class="w">  </span><span class="nx">cadesType</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p>👉 The <code>status</code> field uses the <a href="../verificationstatus/"><strong>SignatureVerificationStatus</strong></a> enumeration for standardized status values. </p>
 <h2 id="example">Example</h2>
-<pre class="codehilite"><code class="language-ts">const response: IVerifyStream =
-  await window.pilotSignBridge?.verifyFile(signatureBase64, file);
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="kt">IVerifyStream</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="o">?</span><span class="p">.</span><span class="nx">verifyFile</span><span class="p">(</span><span class="nx">signatureBase64</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
 
-if (response.ok) {
-  console.log(&quot;Signature valid, type:&quot;, response.cadesType);
-} else {
-  console.error(&quot;Verification failed:&quot;, response.error);
-}
-</code></pre>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Signature valid, type:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">cadesType</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Verification failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 
     </div>
 </article>
@@ -510,7 +510,7 @@ if (response.ok) {
             <path d="M5 12l6 6"></path>
             <path d="M5 12l6 -6"></path>
         </svg>
-        PilotSignBridge Global API
+        Pilot-SignBridge Global API
     </a>
     
     
@@ -570,7 +570,7 @@ if (response.ok) {
                         
                         <a class="text-2xl font-medium" href="../global/">
                             
-                            PilotSignBridge
+                            Global API
                             
                         </a>
                         

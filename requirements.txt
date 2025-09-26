@@ -4,3 +4,4 @@ pymdown-extensions>=10.14.3
 gitpython>=3.1.45
 bottle>=0.13.2
 mkdocstrings[python]>=0.30.0
+pygments>=2.18.0

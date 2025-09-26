@@ -334,7 +334,7 @@
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
         
-        PilotSignBridge
+        Global API
         
 
         
@@ -455,27 +455,27 @@
 
 <p>The <code>SignatureVerificationStatus</code> enumeration defines possible outcomes of a file signature verification.  </p>
 <h2 id="definition">Definition</h2>
-<pre class="codehilite"><code class="language-ts">enum SignatureVerificationStatus {
-  /** The signature is valid and matches the file. */
-  Valid = 0,
+<div class="codehilite"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/** The signature is valid and matches the file. */</span>
+<span class="w">  </span><span class="nx">Valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
 
-  /** The signature is invalid or does not match the file. */
-  Invalid = 1,
+<span class="w">  </span><span class="cm">/** The signature is invalid or does not match the file. */</span>
+<span class="w">  </span><span class="nx">Invalid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
 
-  /** An error occurred during the verification process. */
-  Error = 2
-}
-</code></pre>
+<span class="w">  </span><span class="cm">/** An error occurred during the verification process. */</span>
+<span class="w">  </span><span class="ne">Error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h2 id="usage-example">Usage Example</h2>
-<pre class="codehilite"><code class="language-ts">if (response.status === SignatureVerificationStatus.Valid) {
-  console.log(&quot;The file signature is valid.&quot;);
-} else if (response.status === SignatureVerificationStatus.Invalid) {
-  console.warn(&quot;The file signature is invalid.&quot;);
-} else {
-  console.error(&quot;Verification failed due to an error.&quot;);
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="p">.</span><span class="nx">Valid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The file signature is valid.&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="p">.</span><span class="nx">Invalid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;The file signature is invalid.&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Verification failed due to an error.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p>👉 This page integrates with the <a href="../verification/">IVerifyStream</a> documentation.  </p>
 
@@ -540,7 +540,7 @@
                         
                         <a class="text-2xl font-medium" href="../global/">
                             
-                            PilotSignBridge
+                            Global API
                             
                         </a>
                         

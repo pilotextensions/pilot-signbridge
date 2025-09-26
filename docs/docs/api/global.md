@@ -1,13 +1,13 @@
 ---
 order: 0
-title: PilotSignBridge Global API
-sidebar_title: PilotSignBridge
+title: Pilot-SignBridge Global API
+sidebar_title: Global API
 summary: Provides access to digital certificates, file signing, and signature verification through the browser’s window object.
 ---
 
 # PilotSignBridge Global API
 
-The `PilotSignBridge` API is exposed through the global `window` object.  
+The `Pilot-SignBridge` API is exposed through the global `window` object.  
 It provides methods for working with certificates, signing, and verifying files.  
 
 ## Type Definition
@@ -51,7 +51,7 @@ interface Window {
 
 ```ts
 if (!window.pilotSignBridge) {
-  console.error("PilotSignBridge is not available.");
+  console.error("Pilot-SignBridge is not available.");
   return;
 }
 
@@ -67,7 +67,7 @@ if (certs.length > 0) {
 
 ```ts
 if (!window.pilotSignBridge) {
-  console.error("PilotSignBridge is not available.");
+  console.error("Pilot-SignBridge is not available.");
   return;
 }
 
@@ -83,7 +83,7 @@ console.log("Signed data:", signedBase64);
 
 ```ts
 if (!window.pilotSignBridge) {
-  console.error("PilotSignBridge is not available.");
+  console.error("Pilot-SignBridge is not available.");
   return;
 }
 
@@ -96,7 +96,7 @@ console.log("Verification result:", result);
 
 ```ts
 if (!window.pilotSignBridge) {
-  console.error("PilotSignBridge is not available.");
+  console.error("Pilot-SignBridge is not available.");
   return;
 }
 

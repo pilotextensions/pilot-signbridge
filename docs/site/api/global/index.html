@@ -36,11 +36,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PilotSignBridge Global API - pilot-signbridge</title>
+    <title>Pilot-SignBridge Global API - pilot-signbridge</title>
     
 
 
-<title>PilotSignBridge Global API</title>
+<title>Pilot-SignBridge Global API</title>
 
 
 
@@ -55,7 +55,7 @@
 
 <!-- Open Graph (Facebook, LinkedIn) -->
 
-<meta property="og:title" content="PilotSignBridge Global API">
+<meta property="og:title" content="Pilot-SignBridge Global API">
 
 
 
@@ -70,7 +70,7 @@
 
 <!-- Twitter Card -->
 
-<meta name="twitter:title" content="PilotSignBridge Global API">
+<meta name="twitter:title" content="Pilot-SignBridge Global API">
 
 
 
@@ -334,7 +334,7 @@
         class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground peer/menu-button flex items-center gap-2 rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md">
 
         
-        PilotSignBridge
+        Global API
         
 
         
@@ -417,7 +417,7 @@
             <div id="page-header" class="flex items-start justify-between">
 
                 <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
-                    PilotSignBridge Global API
+                    Pilot-SignBridge Global API
                 </h1>
 
                 <div class="flex items-center gap-2 pt-1.5">
@@ -464,87 +464,87 @@
 
     </div>
     <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
-        <p>The <code>PilotSignBridge</code> API is exposed through the global <code>window</code> object.<br />
+        <p>The <code>Pilot-SignBridge</code> API is exposed through the global <code>window</code> object.<br />
 It provides methods for working with certificates, signing, and verifying files.  </p>
 <h2 id="type-definition">Type Definition</h2>
-<pre class="codehilite"><code class="language-ts">interface Window {
-  pilotSignBridge?: {
-    /** 
-     * Returns the list of available certificates. 
-     */
-    getCerts: () =&gt; Promise&lt;ICertificate[]&gt;;
+<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Window</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">pilotSignBridge</span><span class="o">?:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/** </span>
+<span class="cm">     * Returns the list of available certificates. </span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nx">getCerts</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ICertificate</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">;</span>
 
-    /** 
-     * Creates a detached signature for the given file using the specified
-     * certificate. 
-     * @param certThumbprint - The thumbprint of the certificate to use. 
-     * @param file - The file contents as an ArrayBuffer. 
-     * @returns Base64-encoded signature string. 
-     */
-    signFile: (certThumbprint: string, file: ArrayBuffer) =&gt; Promise&lt;string&gt;;
+<span class="w">    </span><span class="cm">/** </span>
+<span class="cm">     * Creates a detached signature for the given file using the specified</span>
+<span class="cm">     * certificate. </span>
+<span class="cm">     * @param certThumbprint - The thumbprint of the certificate to use. </span>
+<span class="cm">     * @param file - The file contents as an ArrayBuffer. </span>
+<span class="cm">     * @returns Base64-encoded signature string. </span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nx">signFile</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">certThumbprint</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">ArrayBuffer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">;</span>
 
-    /** 
-     * Verifies a file against a detached signature. 
-     * @param signatureBase64 - Base64-encoded signature string. 
-     * @param file - The file contents as an ArrayBuffer. 
-     * @returns Verification result object. 
-     */
-    verifyFile: (signatureBase64: string, file: ArrayBuffer) =&gt; Promise&lt;any&gt;;
+<span class="w">    </span><span class="cm">/** </span>
+<span class="cm">     * Verifies a file against a detached signature. </span>
+<span class="cm">     * @param signatureBase64 - Base64-encoded signature string. </span>
+<span class="cm">     * @param file - The file contents as an ArrayBuffer. </span>
+<span class="cm">     * @returns Verification result object. </span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nx">verifyFile</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">signatureBase64</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">ArrayBuffer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
 
-    /** 
-     * Returns the list of supported signature algorithms. 
-     */
-    getSupportedAlgorithms: () =&gt; Promise&lt;string[]&gt;;
-  };
-}
-</code></pre>
+<span class="w">    </span><span class="cm">/** </span>
+<span class="cm">     * Returns the list of supported signature algorithms. </span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nx">getSupportedAlgorithms</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h2 id="usage">Usage</h2>
 <h3 id="1-get-certificates">1. Get Certificates</h3>
-<pre class="codehilite"><code class="language-ts">if (!window.pilotSignBridge) {
-  console.error(&quot;PilotSignBridge is not available.&quot;);
-  return;
-}
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Pilot-SignBridge is not available.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
 
-const certs = await window.pilotSignBridge.getCerts();
-if (certs.length &gt; 0) {
-  console.log(&quot;Available certificates:&quot;, certs);
-  console.log(&quot;First cert thumbprint:&quot;, certs[0].Thumbprint);
-}
-</code></pre>
+<span class="kd">const</span><span class="w"> </span><span class="nx">certs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">.</span><span class="nx">getCerts</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">certs</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Available certificates:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">certs</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;First cert thumbprint:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">certs</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">Thumbprint</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="2-sign-a-file">2. Sign a File</h3>
-<pre class="codehilite"><code class="language-ts">if (!window.pilotSignBridge) {
-  console.error(&quot;PilotSignBridge is not available.&quot;);
-  return;
-}
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Pilot-SignBridge is not available.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
 
-const arrayBuffer = new TextEncoder().encode(&quot;Hello, world!&quot;).buffer;
-const certThumbprint = &quot;ad296563ea27fff58c15fda728ce38914c9d5f5f&quot;;
+<span class="kd">const</span><span class="w"> </span><span class="nx">arrayBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TextEncoder</span><span class="p">().</span><span class="nx">encode</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">).</span><span class="nx">buffer</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">certThumbprint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ad296563ea27fff58c15fda728ce38914c9d5f5f&quot;</span><span class="p">;</span>
 
-const signedBase64 = await window.pilotSignBridge.signFile(certThumbprint, arrayBuffer);
-console.log(&quot;Signed data:&quot;, signedBase64);
-</code></pre>
+<span class="kd">const</span><span class="w"> </span><span class="nx">signedBase64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">.</span><span class="nx">signFile</span><span class="p">(</span><span class="nx">certThumbprint</span><span class="p">,</span><span class="w"> </span><span class="nx">arrayBuffer</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Signed data:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">signedBase64</span><span class="p">);</span>
+</code></pre></div>
 
 <h3 id="3-verify-a-file">3. Verify a File</h3>
-<pre class="codehilite"><code class="language-ts">if (!window.pilotSignBridge) {
-  console.error(&quot;PilotSignBridge is not available.&quot;);
-  return;
-}
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Pilot-SignBridge is not available.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
 
-const result = await window.pilotSignBridge.verifyFile(signBase64, file);
-console.log(&quot;Verification result:&quot;, result);
-</code></pre>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">.</span><span class="nx">verifyFile</span><span class="p">(</span><span class="nx">signBase64</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Verification result:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>
 
 <h3 id="4-get-supported-algorithms">4. Get Supported Algorithms</h3>
-<pre class="codehilite"><code class="language-ts">if (!window.pilotSignBridge) {
-  console.error(&quot;PilotSignBridge is not available.&quot;);
-  return;
-}
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Pilot-SignBridge is not available.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
 
-const algorithms = await window.pilotSignBridge.getSupportedAlgorithms();
-console.log(&quot;Supported algorithms:&quot;, algorithms);
-</code></pre>
+<span class="kd">const</span><span class="w"> </span><span class="nx">algorithms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="p">.</span><span class="nx">getSupportedAlgorithms</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Supported algorithms:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">algorithms</span><span class="p">);</span>
+</code></pre></div>
 
     </div>
 </article>
@@ -620,7 +620,7 @@ console.log(&quot;Supported algorithms:&quot;, algorithms);
                         
                         <a class="text-2xl font-medium" href="./">
                             
-                            PilotSignBridge
+                            Global API
                             
                         </a>
                         
