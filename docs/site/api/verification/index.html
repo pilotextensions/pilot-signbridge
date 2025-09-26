@@ -143,7 +143,6 @@
                     
 
 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15L15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.75 3.75 0 0 1-1.043 3.296a3.75 3.75 0 0 1-3.296 1.043A3.75 3.75 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.75 3.75 0 0 1-3.296-1.043a3.75 3.75 0 0 1-1.043-3.296A3.75 3.75 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.75 3.75 0 0 1 1.043-3.296a3.75 3.75 0 0 1 3.296-1.043A3.75 3.75 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.75 3.75 0 0 1 3.296 1.043a3.75 3.75 0 0 1 1.043 3.296A3.75 3.75 0 0 1 21 12"/></svg>
-<!-- <iconify-icon class="size-5" icon="heroicons:check-badge" noobserver></iconify-icon> -->
 
 
                 </span>
@@ -467,35 +466,35 @@
     <div class="typography w-full flex-1 *:data-[slot=alert]:first:mt-0">
         <p>The <code>IVerifyStream</code> interface describes the result returned after a file signature verification process. </p>
 <h2 id="type-definition">Type Definition</h2>
-<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">IVerifyStream</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="cm">/** Indicates whether the verification was successful. */</span>
-<span class="w">  </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<pre class="codehilite"><code class="language-ts">interface IVerifyStream {
+  /** Indicates whether the verification was successful. */
+  ok: boolean;
 
-<span class="w">  </span><span class="cm">/** Error message if verification failed (optional). */</span>
-<span class="w">  </span><span class="nx">error?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+  /** Error message if verification failed (optional). */
+  error?: string;
 
-<span class="w">  </span><span class="cm">/** Optional verification session identifier. */</span>
-<span class="w">  </span><span class="nx">session?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+  /** Optional verification session identifier. */
+  session?: string;
 
-<span class="w">  </span><span class="cm">/** Verification status. */</span>
-<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">SignatureVerificationStatus</span><span class="p">;</span>
+  /** Verification status. */
+  status: SignatureVerificationStatus;
 
-<span class="w">  </span><span class="cm">/** Type of CAdES signature (e.g., CAdES-BES, CAdES-T). */</span>
-<span class="w">  </span><span class="nx">cadesType</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+  /** Type of CAdES signature (e.g., CAdES-BES, CAdES-T). */
+  cadesType: string;
+}
+</code></pre>
 
 <p>👉 The <code>status</code> field uses the <a href="../verificationstatus/"><strong>SignatureVerificationStatus</strong></a> enumeration for standardized status values. </p>
 <h2 id="example">Example</h2>
-<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="kt">IVerifyStream</span><span class="w"> </span><span class="o">=</span>
-<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">pilotSignBridge</span><span class="o">?</span><span class="p">.</span><span class="nx">verifyFile</span><span class="p">(</span><span class="nx">signatureBase64</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
+<pre class="codehilite"><code class="language-ts">const response: IVerifyStream =
+  await window.pilotSignBridge?.verifyFile(signatureBase64, file);
 
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Signature valid, type:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">cadesType</span><span class="p">);</span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Verification failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+if (response.ok) {
+  console.log(&quot;Signature valid, type:&quot;, response.cadesType);
+} else {
+  console.error(&quot;Verification failed:&quot;, response.error);
+}
+</code></pre>
 
     </div>
 </article>

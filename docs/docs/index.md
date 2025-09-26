@@ -9,15 +9,17 @@ summary: Secure digital signatures in your browser.
 Bring secure **digital signatures** directly into your browser.  
 Use your existing certificates to sign and verify files safely — no servers, no data leaks.  
 
+![Pilot-SignBridge](signbridge.png)
+
 ## Installation
 
 To use **Pilot-SignBridge**, you must install **both components**:
 
 1. **Browser Extension**  
-  [⬇️ Install from Chrome Web Store](https://chrome.google.com/webstore/detail/pilot-signbridge/pmdljejbakkiijaijbbgndoaignbllfp). The extension connects your browser to the native signing app.  
+  [⬇️ Install from Chrome Web Store](https://chromewebstore.google.com/detail/pilot-signbridge/pmdljejbakkiijaijbbgndoaignbllfp). The extension connects your browser to the native signing app.  
 
 2. **Windows Application**  
-  [⬇️ Download PilotSignBridge.msi](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.0/PilotSignBridge.msi). This companion app communicates with your local cryptographic provider (e.g., CryptoPro). After installation, it runs in the background and handles signing/verification requests.  
+  [⬇️ Download PilotSignBridge.msi](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.1/PilotSignBridge.msi). This companion app communicates with your local cryptographic provider (e.g., CryptoPro). After installation, it runs in the background and handles signing/verification requests.  
 
 ⚠️ *Both the extension **and** the Windows app must be installed — the extension alone will not work.*  
 

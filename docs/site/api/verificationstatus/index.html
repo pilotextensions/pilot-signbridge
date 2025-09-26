@@ -143,7 +143,6 @@
                     
 
 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15L15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.75 3.75 0 0 1-1.043 3.296a3.75 3.75 0 0 1-3.296 1.043A3.75 3.75 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.75 3.75 0 0 1-3.296-1.043a3.75 3.75 0 0 1-1.043-3.296A3.75 3.75 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.75 3.75 0 0 1 1.043-3.296a3.75 3.75 0 0 1 3.296-1.043A3.75 3.75 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.75 3.75 0 0 1 3.296 1.043a3.75 3.75 0 0 1 1.043 3.296A3.75 3.75 0 0 1 21 12"/></svg>
-<!-- <iconify-icon class="size-5" icon="heroicons:check-badge" noobserver></iconify-icon> -->
 
 
                 </span>
@@ -456,27 +455,27 @@
 
 <p>The <code>SignatureVerificationStatus</code> enumeration defines possible outcomes of a file signature verification.  </p>
 <h2 id="definition">Definition</h2>
-<div class="codehilite"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="cm">/** The signature is valid and matches the file. */</span>
-<span class="w">  </span><span class="nx">Valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<pre class="codehilite"><code class="language-ts">enum SignatureVerificationStatus {
+  /** The signature is valid and matches the file. */
+  Valid = 0,
 
-<span class="w">  </span><span class="cm">/** The signature is invalid or does not match the file. */</span>
-<span class="w">  </span><span class="nx">Invalid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+  /** The signature is invalid or does not match the file. */
+  Invalid = 1,
 
-<span class="w">  </span><span class="cm">/** An error occurred during the verification process. */</span>
-<span class="w">  </span><span class="ne">Error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
-<span class="p">}</span>
-</code></pre></div>
+  /** An error occurred during the verification process. */
+  Error = 2
+}
+</code></pre>
 
 <h2 id="usage-example">Usage Example</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="p">.</span><span class="nx">Valid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The file signature is valid.&quot;</span><span class="p">);</span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">SignatureVerificationStatus</span><span class="p">.</span><span class="nx">Invalid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;The file signature is invalid.&quot;</span><span class="p">);</span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Verification failed due to an error.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-ts">if (response.status === SignatureVerificationStatus.Valid) {
+  console.log(&quot;The file signature is valid.&quot;);
+} else if (response.status === SignatureVerificationStatus.Invalid) {
+  console.warn(&quot;The file signature is invalid.&quot;);
+} else {
+  console.error(&quot;Verification failed due to an error.&quot;);
+}
+</code></pre>
 
 <p>👉 This page integrates with the <a href="../verification/">IVerifyStream</a> documentation.  </p>
 
