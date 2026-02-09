@@ -13,18 +13,15 @@ Use your existing certificates to sign and verify files safely — no servers, n
 
 ## Installation
 
-To use **Pilot-SignBridge**, you must install **both components**:
+**Windows Application**  
+[⬇️ Download PilotSignBridge.msi](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.2/PilotSignBridge.msi) The installer includes the `Windows application` and the `Browser Extension`. After installation, the app runs in the background and handles signing/verification requests using your local cryptographic provider (e.g., CryptoPro).
 
-1. **Browser Extension**  
-  [⬇️ Install from Chrome Web Store](https://chromewebstore.google.com/detail/pilot-signbridge/pmdljejbakkiijaijbbgndoaignbllfp). The extension connects your browser to the native signing app.  
+**Pilot-Web Extension**  
+[⬇️ Download Pilot-Web Extension](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.0/cryptoprovider.pilot-signbridge.zip). This extension enables integration with the `Pilot-Web-Server` for seamless signing operations.
 
-2. **Windows Application**  
-  [⬇️ Download PilotSignBridge.msi](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.0/PilotSignBridge.msi). This companion app communicates with your local cryptographic provider (e.g., CryptoPro). After installation, it runs in the background and handles signing/verification requests.  
 
-3. **Pilot-Web Extension**  
-  [⬇️ Download Pilot-Web Extension](https://github.com/pilotextensions/pilot-signbridge/releases/download/v1.0.0/cryptoprovider.pilot-signbridge.zip). This extension enables integration with the Pilot-Web Client for seamless signing operations.
-
-⚠️ *Both the Chrome extension and the Windows app must be installed — the Chrome extension alone will not work.*  
+⚠️ If you need to reinstall **Pilot-SignBridge Extension** manually - [Install from Chrome Web Store](https://chromewebstore.google.com/detail/pilot-signbridge/pmdljejbakkiijaijbbgndoaignbllfp
+)
 
 
 ## Why Pilot-SignBridge?
